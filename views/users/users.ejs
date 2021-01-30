@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+    <%- include('../partials/head'); %>
+</head> 
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header', { user: user }); %>
+    </header>
+    
+    <div class="row">
+        <a type="button" class="btn btn-primary float-right" href="/users/addUser">Add New User</a>
+    </div>
+
+    <%if (message) { %>
+        <div class="row alert alert-success">
+            <%= message%>
+        </div>
+        <% } %>
+
+    <% if (users.length) {%> 
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(function(user) { %>
+                    <tr>
+                        <td>
+                            <%=user.username %>
+                        </td>
+                        <td>
+                            <%=user.email %>
+                        </td>
+                        <td>
+                            <a href="/users/<%=user.id%>/edit">Edit</a> | 
+                            <a href="/users/<%=user.id%>/details">Details</a> | 
+                            <a href="/users/<%=user.id%>/delete">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %> 
+            </tbody>
+        </table>
+    </div>
+    <% } else { %>
+    <p>No users yet</p>
+    <% } %>  
+    
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body> 
+  
+</html>  

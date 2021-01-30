@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+    <%- include('../partials/head'); %>
+</head> 
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header', { user: user }); %>
+    </header>
+
+
+    <%if (errors.length) { %>
+    <div class="row alert alert-warning">
+        Errors:
+            <ul>
+                <% errors.forEach(function(error) { %>
+                    <li>
+                        <%=error.msg%>
+                    </li>
+                <% }); %>
+            </ul>
+    </div>
+    <% } %>
+    <div class="row">
+        <div class="col-sm-8">
+            <h3>Edit User</h3>
+            <a  href="/users">Back To Users List</a>
+            <hr />
+            <form action="/users/<%=user.id%>/edit" method="post">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" class="form-control" id="username" value="<%= user.username %>">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" name="email" class="form-control" id="email" value="<%= user.email %>">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body> 
+  
+</html>  

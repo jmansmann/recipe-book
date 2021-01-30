@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+    <%- include('../partials/head'); %>
+</head> 
+
+<body class="container">
+
+    <header>
+        <%- include('../partials/header', { user: user }); %>
+    </header>
+
+    <div class="row">
+        <a  href="/users">Back To Users List</a>
+    </div>
+    <hr />
+
+    <%if (errors) { %>
+    <div class="row alert alert-warning">
+        Errors:
+            <ul>
+                <% errors.forEach(function(error) { %>
+                    <li>
+                        <%=error.msg%>
+                    </li>
+                <% }); %>
+            </ul>
+        
+    </div>
+    <% } %>
+    <div class="row">
+        <div class="col-sm-8">
+            <form action="/users/addUser" method="post">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" name="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                </div>
+                <!-- <div class="checkbox">
+                    <label><input type="checkbox"> Remember me</label>
+                </div> -->
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body> 
+  
+</html>  

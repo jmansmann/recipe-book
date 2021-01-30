@@ -1,0 +1,21 @@
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+    <%- include('./partials/head'); %>
+</head> 
+<body class="container">
+
+    <header>
+        <%- include('./partials/header', {user: user}); %>
+    </header>
+    <h1>An Error occured</h1>
+    <h4><%=message%></h4>
+    <p><%=error.stack%></p>
+    
+    <footer>
+        <%- include('./partials/footer'); %>
+    </footer>
+    
+</body>
+</html>

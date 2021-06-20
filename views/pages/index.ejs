@@ -12,10 +12,12 @@
     
     <main>
         <div class="jumbotron">
-            <h1>Hi <%=name%>, Welcome to your Recipe Book</h1>
-            <% if (!user) { %>
+        <% if (!user) { %>
+            <h1>Hello! Login to access your Recipe Book</h1>
             <a type="button" class="btn btn-primary" href="/login">Login</a>
-            <% } %>
+        <% } else { %>
+            <h1>Hello <%=user.first_name%>, Welcome to your Recipe Book<h1> 
+        <% } %>
         </div>
     </main>
     

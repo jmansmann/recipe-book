@@ -44,7 +44,7 @@ router.post('/addUser',
     .isLength({ min: 1 })
     .withMessage('Please enter an email'),
   check('password')
-    .isLength({ min: 1 })
+    .isLength({ min: 3 })
     .withMessage('Please enter a password')
 ], (req, res, next) => {
   console.log(req.body);

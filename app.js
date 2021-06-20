@@ -18,6 +18,8 @@ require('dotenv').config();
 
 require('./models/User');
 
+console.log('hello, connecting to DB'); //DATABASE=mongodb://mongo:27017/recipebook
+console.log(process.env.DATABASE);      //mongodb://localhost:27017/recipebook
 mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -80,8 +82,9 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-app.set('port', process.env.PORT || 3000); 
+//app.set('port', process.env.PORT || 3000); 
 var server = app.listen(app.get('port'), function() { 
+  console.log('database: ' + process.env.DATABASE);
   console.log('Express server listening on port ' + server.address().port); 
 }); 
 

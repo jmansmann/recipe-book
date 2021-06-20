@@ -21,7 +21,7 @@ router.use('/', function (req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('pages/index', { title: 'Express', name: 'Jim', user: req.session.user });
+  res.render('pages/index', { title: 'Express', user: req.session.user });
 });
 
 /* GET login page. */ 

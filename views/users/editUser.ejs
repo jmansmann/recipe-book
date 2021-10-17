@@ -31,6 +31,14 @@
             <hr />
             <form action="/users/<%=user.id%>/edit" method="post">
                 <div class="form-group">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" class="form-control" id="first_name" value="<%= user.first_name %>">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" class="form-control" id="last_name" value="<%= user.last_name %>">
+                </div>
+                <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" name="username" class="form-control" id="username" value="<%= user.username %>">
                 </div>
